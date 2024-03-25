@@ -9,7 +9,6 @@ The dataset used in this project is stored in a CSV file named `dataset.csv`. It
 - `age`: Age of the patient
 - `sex`: Gender of the patient (0 = female, 1 = male)
 - `cp`: Chest pain type (0 = Typical Angina, 1 = Atypical Angina, 2 = Non-anginal Pain, 3 = Asymptomatic)
-- Add more description for other columns if needed...
 
 ## Visualization
 
