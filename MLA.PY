@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 # Load dataset
@@ -54,12 +55,22 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# Model training
-model = LogisticRegression()
-model.fit(X_train_scaled, y_train)
+# Model training - Logistic Regression
+logistic_model = LogisticRegression()
+logistic_model.fit(X_train_scaled, y_train)
 
-# Model evaluation
-y_pred = model.predict(X_test_scaled)
-accuracy = accuracy_score(y_test, y_pred)
-print("Accuracy:", accuracy)
-print("Classification Report:\n", classification_report(y_test, y_pred))
+# Model evaluation - Logistic Regression
+y_pred_logistic = logistic_model.predict(X_test_scaled)
+accuracy_logistic = accuracy_score(y_test, y_pred_logistic)
+print("Logistic Regression Model Accuracy:", accuracy_logistic)
+print("Logistic Regression Classification Report:\n", classification_report(y_test, y_pred_logistic))
+
+# Model training - Decision Tree Classifier
+decision_tree_model = DecisionTreeClassifier()
+decision_tree_model.fit(X_train_scaled, y_train)
+
+# Model evaluation - Decision Tree Classifier
+y_pred_decision_tree = decision_tree_model.predict(X_test_scaled)
+accuracy_decision_tree = accuracy_score(y_test, y_pred_decision_tree)
+print("Decision Tree Classifier Model Accuracy:", accuracy_decision_tree)
+print("Decision Tree Classifier Classification Report:\n", classification_report(y_test, y_pred_decision_tree))
